@@ -16,6 +16,8 @@ Run this command in the directory that has your docker-compose.yml
 docker-compose up --build --detach
 ```
 
+npx tailwindcss-cli@latest build ./static/src/main.css -o ./static/dist/main.css
+
 ## Testing
 If you didn't modify the example code you should be able to go to localhost port 80 in a browser and get a red "Hello World" message
 

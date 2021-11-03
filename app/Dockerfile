@@ -1,14 +1,9 @@
-# VERSION 1.0
-# AUTHOR: Phil Chen
-# DOCKER HUB: https://hub.docker.com/u/nethacker
-# DESCRIPTION: A scalable Flask application using Gunicorn on Ubuntu 18.04
-# SOURCE: https://github.com/nethacker/ubuntu-flask-gunicorn-nginx-docker-compose
-FROM nethacker/ubuntu-18-04-python-3:python-3.7.3
+FROM python:3.10.0-buster
 COPY src/requirements.txt /root/
-RUN pip install -r /root/requirements.txt && useradd -m ubuntu
-ENV HOME=/home/ubuntu
-USER ubuntu
-COPY src/app01.py src/wsgi.py src/gunicorn_config.py /home/ubuntu/
-WORKDIR /home/ubuntu/
+RUN pip install -r /root/requirements.txt && useradd -m lagoa
+ENV HOME=/home/lagoa
+USER lagoa
+COPY src/app01.py src/wsgi.py src/gunicorn_config.py /home/lagoa/
+WORKDIR /home/lagoa/
 EXPOSE 8080
-CMD ["gunicorn", "-c", "gunicorn_config.py", "wsgi:hello"]
+CMD ["gunicorn", "-c", "gunicorn_config.py", "wsgi:lagoa", "--reload"]

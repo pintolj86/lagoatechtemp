@@ -11,5 +11,5 @@ bind = '0.0.0.0:8080'
 backlog = 2048
 accesslog = '-'
 errorlog = '-'
-user = 'ubuntu'
-group = 'ubuntu'
+user = 'lagoa'
+group = 'lagoa'

@@ -1,4 +1,4 @@
-from app01 import hello
+from app01 import lagoa
 
 if __name__ == "__main__":
-    hello.run()
+    lagoa.run()
